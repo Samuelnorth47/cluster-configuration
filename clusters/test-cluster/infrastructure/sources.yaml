@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: metallb
-  namespace: fluxcd-system
+  namespace: flux-system
 spec:
   interval: 1h
   url: https://metallb.github.io/metallb
@@ -11,7 +11,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: jetstack
-  namespace: fluxcd-system
+  namespace: flux-system
 spec:
   interval: 1h
   url: https://charts.jetstack.io
@@ -20,7 +20,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: traefik
-  namespace: fluxcd-system
+  namespace: flux-system
 spec:
   interval: 1h
   url: https://traefik.github.io/charts

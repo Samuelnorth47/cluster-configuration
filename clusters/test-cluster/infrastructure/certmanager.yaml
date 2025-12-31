@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: jetstack
-        namespace: fluxcd-system
+        namespace: flux-system
   install:
     crds: CreateReplace # Ensures CRDs are installed
   upgrade:

@@ -11,7 +11,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: traefik
-        namespace: fluxcd-system
+        namespace: flux-system
   values:
     service:
       annotations:

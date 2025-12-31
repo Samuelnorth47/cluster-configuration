@@ -12,4 +12,4 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: metallb
-        namespace: fluxcd-system
+        namespace: flux-system
