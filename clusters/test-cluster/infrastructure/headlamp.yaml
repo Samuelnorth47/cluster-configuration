@@ -18,6 +18,7 @@ spec:
   values: 
     ingress:
       enabled: true
+      className: traefik
       hosts:
         - host: headlamp.apps.home.arpa
           paths:
