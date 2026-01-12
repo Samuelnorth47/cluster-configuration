@@ -4,6 +4,8 @@ metadata:
   name: headlamp
   namespace: kube-system
 spec:
+  upgrade:
+    force: true
   interval: 30m
   chart:
     spec:
