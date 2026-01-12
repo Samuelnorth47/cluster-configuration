@@ -28,7 +28,7 @@ spec:
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: head-lamp
+  name: headlamp
   namespace: flux-system
 spec:
   interval: 1h
