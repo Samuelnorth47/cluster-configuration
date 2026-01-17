@@ -6,8 +6,6 @@ metadata:
 spec:
   releaseName: metallb
   targetNamespace: metallb-system
-  install:
-    createNamespace: true
   interval: 30m
   chart:
     spec:
