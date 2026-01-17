@@ -8,7 +8,7 @@ spec:
   dependsOn:
     - name: infra-controllers
   interval: 10m
-  path: ./clusters/test-cluster/infrastructure-configs
+  path: ./infrastructure/configs
   prune: true
   sourceRef:
     kind: GitRepository
