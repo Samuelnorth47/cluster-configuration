@@ -23,7 +23,5 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
-  url: oci://ghcr.io/nicklasfrahm/charts/gateway-api
+  url: oci://ghcr.io/nicklasfrahm/charts
   type: oci
-  secretRef:
-    name: ghcr-secret
