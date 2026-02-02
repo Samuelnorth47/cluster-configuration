@@ -4,3 +4,4 @@ resources:
   - ./certmanager
   - ./sources
   - ./metallb
+  - ./istio

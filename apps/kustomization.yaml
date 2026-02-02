@@ -4,3 +4,4 @@ resources:
   - headlamp
   - traefik
   - sources
+  - gluetun-qbittorent
