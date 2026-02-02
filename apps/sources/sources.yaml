@@ -15,13 +15,3 @@ metadata:
 spec:
   interval: 1h
   url: https://kubernetes-sigs.github.io/headlamp
----
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
-metadata:
-  name: gateway-api
-  namespace: flux-system
-spec:
-  interval: 1h
-  url: oci://ghcr.io/nicklasfrahm/charts
-  type: oci
