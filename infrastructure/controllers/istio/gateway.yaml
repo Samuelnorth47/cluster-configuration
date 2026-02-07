@@ -7,7 +7,7 @@ spec:
   releaseName: istio-gateway
   targetNamespace: istio-system
   dependsOn:
-    - name: istiod
+    - name: istio-system/istiod
   chart:
     spec:
       chart: gateway
