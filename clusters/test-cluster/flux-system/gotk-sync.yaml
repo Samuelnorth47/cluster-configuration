@@ -11,7 +11,7 @@ spec:
     branch: main
   secretRef:
     name: flux-system
-  url: https://github.com/Samuelnorth47/cluster-configuration.git
+  url: ssh://git@github.com/Samuelnorth47/cluster-configuration
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
