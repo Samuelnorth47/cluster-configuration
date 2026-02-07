@@ -15,4 +15,3 @@ spec:
         name: istio
         namespace: istio-system
   interval: 1h
-  wait: true 
