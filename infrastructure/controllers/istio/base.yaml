@@ -5,6 +5,7 @@ metadata:
   namespace: istio-system
 spec:
   releaseName: istio-base
+  targetNamespace: istio-system
   dependsOn:
     - name: metallb
   chart:
