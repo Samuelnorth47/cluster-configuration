@@ -7,7 +7,7 @@ spec:
   releaseName: istiod
   targetNamespace: istio-system
   dependsOn:
-    - name: istio-system/istio-base
+    - name: istio-base
   chart:
     spec:
       chart: istiod
