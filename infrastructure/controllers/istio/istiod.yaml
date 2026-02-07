@@ -5,6 +5,7 @@ metadata:
   namespace: istio-system
 spec:
   releaseName: istiod
+  targetNamespace: istio-system
   dependsOn:
     - name: istio-base
   chart:

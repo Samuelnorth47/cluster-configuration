@@ -5,6 +5,7 @@ metadata:
   namespace: istio-system
 spec:
   releaseName: istio-gateway
+  targetNamespace: istio-system
   dependsOn:
     - name: istiod
   chart:
