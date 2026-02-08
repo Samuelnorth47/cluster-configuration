@@ -26,10 +26,15 @@ spec:
       labels:
         app.kubernetes.io/part-of: traefik
       hosts:
-        - host: headlamp.apps.home.arpa
+        - host: headlamp.apps.northcloud.dev
           paths:
             - path: /
               type: ImplementationSpecific
+      tls: 
+        - hosts:
+            - headlamp.apps.northcloud.dev
+          secretName: northcloud-internal-tls
+
     initContainers:
       - command:
           - /bin/sh
