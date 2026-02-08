@@ -33,7 +33,7 @@ spec:
       tls: 
         - hosts:
             - headlamp.apps.northcloud.dev
-          secretName: northcloud-internal-tls
+          secretName: wildcard-apps-tls
 
     initContainers:
       - command:
