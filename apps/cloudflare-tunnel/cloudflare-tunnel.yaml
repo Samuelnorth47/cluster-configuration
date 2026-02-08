@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: cloudflare-tunnel
-  namespace: traefik
+  namespace: traefik-system
 spec:
   chart:
     spec:
@@ -29,5 +29,5 @@ spec:
       ingress:
         - hostname: headlamp.northcloud.dev
           # Point this to your Traefik service name and port
-          service: http://traefik.traefik.svc.cluster.local:80
+          service: http://traefik.traefik-system.svc.cluster.local:80
         - service: http_status:404 # Catch-all for undefined subdomains
