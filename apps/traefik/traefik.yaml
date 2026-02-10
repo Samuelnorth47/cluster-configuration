@@ -22,4 +22,4 @@ spec:
     tlsStore:
       default:
         defaultCertificate:
-          secretName: northcloud-internal-tls
+          secretName: northcloud-wildcard-tls
