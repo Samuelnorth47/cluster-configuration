@@ -8,9 +8,13 @@ spec:
   targetNamespace: headlamp-system
   install:
     createNamespace: true
+    remidiation:
+      retries: 3
   upgrade:
     force: true
   interval: 30m
+  driftDetection:
+    mode: enabled
   chart:
     spec:
       chart: headlamp
