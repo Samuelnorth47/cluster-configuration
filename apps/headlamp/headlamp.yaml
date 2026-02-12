@@ -34,10 +34,9 @@ spec:
           paths:
             - path: /
               type: ImplementationSpecific
-#      tls: 
-#        - hosts:
-#            - headlamp.int.northcloud.dev
-#          secretName: northcloud-int-wildcard-tls
+      tls: 
+        - hosts:
+            - headlamp.int.northcloud.dev
 
     initContainers:
       - command:
