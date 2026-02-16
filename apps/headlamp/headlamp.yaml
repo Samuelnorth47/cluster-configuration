@@ -24,6 +24,7 @@ spec:
         name: headlamp
         namespace: flux-system
   values:
+  
     # -- Mount Service Account token in pod
     automountServiceAccountToken: true
 
@@ -47,6 +48,9 @@ spec:
       inCluster: true
       # -- base url path at which headlamp should run
       oidc:
+        clientID: "MPUPQLP7b4tAXcDg4nZit1AnOF9AFRiv"
+        issuerURL: "https://dev-msiuc0jdc2o4exg3.us.auth0.com/"
+        scopes: "openid,profile,email,groups"
         # Option 1:
         # @param config.oidc.secret - OIDC secret configuration
         # If you want to use an existing secret, set create to false and provide the name of the secret.
