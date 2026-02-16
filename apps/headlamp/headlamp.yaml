@@ -43,26 +43,26 @@ spec:
       clusterRoleName: cluster-admin
       # -- Annotations to add to the cluster role binding
       annotations: {}
-
-  inCluster: true
-  # -- base url path at which headlamp should run
-  oidc:
-    # Option 1:
-    # @param config.oidc.secret - OIDC secret configuration
-    # If you want to use an existing secret, set create to false and provide the name of the secret.
-    # If you want to create a new secret, set create to true and provide the name of the secret.
-    # Also provide the values for clientID, clientSecret, issuerURL, and scopes.
-    # Example:
-    # config:
-    #   oidc:
-    #     secret:
-    #       create: true
-    #       name: oidc
-    secret:
-      # -- Generate OIDC secret. If true, will generate a secret using .config.oidc.
-      create: false
-      # -- Name of the OIDC secret.
-      name: oidc
+    config:
+      inCluster: true
+      # -- base url path at which headlamp should run
+      oidc:
+        # Option 1:
+        # @param config.oidc.secret - OIDC secret configuration
+        # If you want to use an existing secret, set create to false and provide the name of the secret.
+        # If you want to create a new secret, set create to true and provide the name of the secret.
+        # Also provide the values for clientID, clientSecret, issuerURL, and scopes.
+        # Example:
+        # config:
+        #   oidc:
+        #     secret:
+        #       create: true
+        #       name: oidc
+        secret:
+          # -- Generate OIDC secret. If true, will generate a secret using .config.oidc.
+          create: false
+          # -- Name of the OIDC secret.
+          name: oidc
 
 
 
