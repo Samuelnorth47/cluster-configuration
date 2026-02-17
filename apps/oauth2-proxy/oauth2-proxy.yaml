@@ -16,3 +16,4 @@ spec:
         kind: HelmRepository
         name: oauth2-proxy
         namespace: flux-system
+        version: 10.1.3
