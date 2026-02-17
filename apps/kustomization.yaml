@@ -5,3 +5,5 @@ resources:
   - traefik
   - sources
   - cloudflare-tunnel
+  - external-secrets
+  - oauth2-proxy
