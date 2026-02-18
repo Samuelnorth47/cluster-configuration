@@ -47,27 +47,6 @@ spec:
     config:
       inCluster: true
       # -- base url path at which headlamp should run
-      oidc:
-        clientID: "MPUPQLP7b4tAXcDg4nZit1AnOF9AFRiv"
-        issuerURL: "https://dev-msiuc0jdc2o4exg3.us.auth0.com/"
-        scopes: "openid,profile,email,groups"
-        # Option 1:
-        # @param config.oidc.secret - OIDC secret configuration
-        # If you want to use an existing secret, set create to false and provide the name of the secret.
-        # If you want to create a new secret, set create to true and provide the name of the secret.
-        # Also provide the values for clientID, clientSecret, issuerURL, and scopes.
-        # Example:
-        # config:
-        #   oidc:
-        #     secret:
-        #       create: true
-        #       name: oidc
-        secret:
-          # -- Generate OIDC secret. If true, will generate a secret using .config.oidc.
-          create: false
-          # -- Name of the OIDC secret.
-          name: oidc
-
 
 
     useAccessToken: false
