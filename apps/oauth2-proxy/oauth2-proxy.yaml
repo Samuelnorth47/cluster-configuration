@@ -41,15 +41,15 @@ spec:
         enabled: true
         configFile: |-
           # Note the use of ${VAR_NAME} to pull the value
-          cookie_secret = "${PROXY_COOKIE_SECRET}"
+          cookie_secret: "${PROXY_COOKIE_SECRET}"
 
-          injectRequestHeaders:
+        injectRequestHeaders:
             - name: Authorization
               values:
                 - claim: access_token
                   prefix: 'Bearer '
 
-          providers:
+        providers:
             - id: okta
               provider: oidc
               # Use the environment variables here
@@ -64,8 +64,12 @@ spec:
                    - aud
               scope: "openid email profile"
 
-          upstreamConfig:
+        upstreamConfig:
             upstreams:
               - id: main
                 path: /
                 uri: "http://headlamp.headlamp-system.svc.cluster.local"
+      config:
+        cookieSecret: "${PROXY_COOKIE_SECRET}"
+        emailDomains:
+          - "*"
