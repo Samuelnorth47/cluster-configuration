@@ -36,47 +36,42 @@ spec:
             name: okta-creds
             key: cookie-secret
 
-    # 2. Disable Legacy Config to avoid conflicts
     config:
-      enabled: false 
-      
-    # 3. Use Alpha Config for Header Injection
+      configFile: |-
+        email_domains = []
+        upstreams = []
+
+    # 3. Use Alpha Config for Auth0 and Header Injection
     alphaConfig:
       enabled: true
       configData: |
-        # Inject the ID TOKEN, not the Access Token
         injectRequestHeaders:
           - name: Authorization
             values:
-              - claim: id_token 
-                prefix: 'Bearer ' 
-        
+              - claim: id_token
+                prefix: 'Bearer '
+
         providers:
           - id: auth0
             provider: oidc
             clientID: "${OIDC_CLIENT_ID}"
             clientSecret: "${OIDC_CLIENT_SECRET}"
-            # Ensure this scope includes 'openid' and 'groups'
-            scope: "openid profile email groups" 
+            scope: "openid profile email groups"
             oidcConfig:
               issuerURL: "https://dev-msiuc0jdc2o4exg3.us.auth0.com/"
               emailClaim: email
               groupsClaim: groups
               insecureAllowUnverifiedEmail: true
-              userIDClaim: email 
-        
+
         upstreamConfig:
           upstreams:
             - id: headlamp
               path: /
-              # Ensure this service name is correct for your cluster
               uri: "http://headlamp.headlamp-system.svc.cluster.local"
-              
-        # 4. Email Domains (moved from legacy config)
+
         emailDomains:
           - "*"
-        
-        # 5. Cookie Settings
+
         cookie:
           secret: "${OIDC_COOKIE_SECRET}"
-          secure: false # Set to true if running behind HTTPS ingress
+          secure: false # Set to true if you are using HTTPS/Ingress
