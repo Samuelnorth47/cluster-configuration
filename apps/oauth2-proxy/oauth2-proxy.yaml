@@ -17,59 +17,66 @@ spec:
         name: oauth2-proxy
         namespace: flux-system
       version: "10.1.3"
-  values:
-    # 1. Map the K8s Secret to Environment Variables
-      extraEnv:
-        - name: OKTA_CLIENT_ID
-          valueFrom:
-            secretKeyRef:
-              name: okta-creds
-              key: client-id
-        - name: OKTA_CLIENT_SECRET
-          valueFrom:
-            secretKeyRef:
-              name: okta-creds
-              key: client-secret
-        - name: PROXY_COOKIE_SECRET
-          valueFrom:
-            secretKeyRef:
-              name: okta-creds
-              key: cookie-secret
+values:
+    # 1. Map Secret to Env Vars
+    extraEnv:
+      - name: OIDC_CLIENT_ID
+        valueFrom:
+          secretKeyRef:
+            name: okta-creds
+            key: client-id
+      - name: OIDC_CLIENT_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: okta-creds
+            key: client-secret
+      - name: OIDC_COOKIE_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: okta-creds
+            key: cookie-secret
 
-      # 2. Reference them in the Config
-      alphaConfig:
-        enabled: true
-        configFile: |-
-          # Note the use of ${VAR_NAME} to pull the value
-          cookie_secret: "${PROXY_COOKIE_SECRET}"
-
-          injectRequestHeaders:
-            - name: Authorization
-              values:
-                - claim: access_token
-                  prefix: 'Bearer '
-
-          providers:
-            - id: okta
-              provider: oidc
-              # Use the environment variables here
-              clientID: "${OKTA_CLIENT_ID}"
-              clientSecret: "${OKTA_CLIENT_SECRET}"
-
-              oidcConfig:
-                issuerURL: "https://dev-msiuc0jdc2o4exg3.us.auth0.com/"
-                emailClaim: email
-                insecureAllowUnverifiedEmail: true
-                audienceClaims:
-                   - aud
-              scope: "openid email profile"
-
-          upstreamConfig:
-            upstreams:
-              - id: main
-                path: /
-                uri: "http://headlamp.headlamp-system.svc.cluster.local"
-      config:
-        cookieSecret: "${PROXY_COOKIE_SECRET}"
+    # 2. Disable Legacy Config to avoid conflicts
+    config:
+      enabled: false 
+      
+    # 3. Use Alpha Config for Header Injection
+    alphaConfig:
+      enabled: true
+      configData: |
+        # Inject the ID TOKEN, not the Access Token
+        injectRequestHeaders:
+          - name: Authorization
+            values:
+              - claim: id_token 
+                prefix: 'Bearer ' 
+        
+        providers:
+          - id: auth0
+            provider: oidc
+            clientID: "${OIDC_CLIENT_ID}"
+            clientSecret: "${OIDC_CLIENT_SECRET}"
+            # Ensure this scope includes 'openid' and 'groups'
+            scope: "openid profile email groups" 
+            oidcConfig:
+              issuerURL: "https://dev-msiuc0jdc2o4exg3.us.auth0.com/"
+              emailClaim: email
+              groupsClaim: groups
+              insecureAllowUnverifiedEmail: true
+              userIDClaim: email 
+        
+        upstreamConfig:
+          upstreams:
+            - id: headlamp
+              path: /
+              # Ensure this service name is correct for your cluster
+              uri: "http://headlamp.headlamp-system.svc.cluster.local"
+              
+        # 4. Email Domains (moved from legacy config)
         emailDomains:
           - "*"
+        
+        # 5. Cookie Settings
+        cookie:
+          secret: "${OIDC_COOKIE_SECRET}"
+          secure: false # Set to true if running behind HTTPS ingress
