@@ -3,4 +3,6 @@ kind: Kustomization
 resources:
   - cloudflare-cluster-issuer.yaml
   - bind9-cluster-issuer.yaml
-  - self-signed-cluster-issuer.yaml
+  - local-ca-cluster-issuer.yaml
+  - self-signed-bootstrap-cluster-issuer.yaml
+  - northcloud-internal-ca.yaml
