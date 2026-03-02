@@ -8,5 +8,5 @@ spec:
   dnsNames:
     - bitwarden-sdk-server.external-secrets-system.svc.cluster.local
   issuerRef:
-    name: bind9-issuer
+    name: selfsigned-issuer
     kind: ClusterIssuer

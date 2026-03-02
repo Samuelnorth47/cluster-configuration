@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - cloudflare-cluster-issuer.yaml
   - bind9-cluster-issuer.yaml
+  - self-signed-cluster-issuer.yaml
