@@ -6,3 +6,4 @@ resources:
   - sources
   - cloudflare-tunnel
   - external-secrets
+  - external-dns

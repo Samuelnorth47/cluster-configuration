@@ -1,0 +1,31 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: external-dns
+  namespace: flux-system
+spec:
+  releaseName: external-dns
+  targetNamespace: external-dns-system
+  install:
+    createNamespace: true
+  interval: 30m
+  chart:
+    spec:
+      chart: external-dns
+      sourceRef:
+        kind: HelmRepository
+        name: external-dns
+        namespace: flux-system
+      version: "1.2.0"
+  values:
+    provider: rfc2136
+    rfc2136:
+      host: "192.168.4.1" 
+      port: 5354       
+      zone: "int.northcloud.dev" 
+      tsigSecret: "YOUR_RAW_BASE64_KEY_HERE" 
+      tsigKeyname: "externaldns-key" 
+      tsigSecretAlg: "hmac-sha512" 
+      tsigAxfr: true
+    domainFilters:
+      - "int.northcloud.dev"

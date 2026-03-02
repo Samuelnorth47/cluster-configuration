@@ -12,22 +12,22 @@ spec:
         name: cloudflare
         namespace: flux-system
   interval: 1h
-  values:
-    cloudflare:
-      tunnel_token: "" # Leave empty, we will use the secret below
+  # values:
+  #   cloudflare:
+  #     tunnel_token: "" # Leave empty, we will use the secret below
     
-    # This block links the secret you created to the tunnel pod
-    env:
-      - name: TUNNEL_TOKEN
-        valueFrom:
-          secretKeyRef:
-            name: cloudflare-tunnel-token
-            key: tunnel-token
+  #   # This block links the secret you created to the tunnel pod
+  #   env:
+  #     - name: TUNNEL_TOKEN
+  #       valueFrom:
+  #         secretKeyRef:
+  #           name: cloudflare-tunnel-token
+  #           key: tunnel-token
 
-    # The Ingress Rules: This is where you map your domain to your local service
-    config:
-      ingress:
-        - hostname: headlamp.northcloud.dev
-          # Point this to your Traefik service name and port
-          service: http://traefik.traefik-system.svc.cluster.local:80
-        - service: http_status:404 # Catch-all for undefined subdomains
+  #   # The Ingress Rules: This is where you map your domain to your local service
+  #   config:
+  #     ingress:
+  #       - hostname: headlamp.northcloud.dev
+  #         # Point this to your Traefik service name and port
+  #         service: http://traefik.traefik-system.svc.cluster.local:80
+  #       - service: http_status:404 # Catch-all for undefined subdomains

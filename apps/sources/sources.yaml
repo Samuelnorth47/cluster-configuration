@@ -33,5 +33,21 @@ metadata:
 spec:
   interval: 1h
   url: https://charts.external-secrets.io
-
-
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: external-dns 
+  namespace: flux-system
+spec:
+  interval: 1h
+  url: https://kubernetes-sigs.github.io/external-dns/
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: eznix86 
+  namespace: flux-system
+spec:
+  interval: 1h
+  url: https://eznix86.github.io/bitwarden-external-secrets
