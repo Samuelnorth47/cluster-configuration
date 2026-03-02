@@ -23,7 +23,7 @@ spec:
       host: "192.168.4.1" 
       port: 5354       
       zone: "int.northcloud.dev" 
-      tsigSecret: "YOUR_RAW_BASE64_KEY_HERE" 
+      tsigSecret: "test" 
       tsigKeyname: "externaldns-key" 
       tsigSecretAlg: "hmac-sha512" 
       tsigAxfr: true
