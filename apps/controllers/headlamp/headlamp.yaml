@@ -25,6 +25,7 @@ spec:
         namespace: flux-system
   values:
     config:
+    inCluster: true
       oidc:
         secret:
           create: false
@@ -43,15 +44,10 @@ spec:
       name: "headlamp"
 
     clusterRoleBinding:
-      # -- Specified whether a cluster role binding should be created
       create: true
-      # -- Set name of the Cluster Role with limited permissions from you cluster
-      # for example - clusterRoleName: user-ro
       clusterRoleName: cluster-admin
       # -- Annotations to add to the cluster role binding
       annotations: {}
-    config:
-      inCluster: true
       # -- base url path at which headlamp should run
 
 
