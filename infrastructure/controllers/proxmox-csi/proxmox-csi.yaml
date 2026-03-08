@@ -12,7 +12,7 @@ spec:
       chart: proxmox-csi-plugin
       version: "v1.19.2"
       sourceRef:
-        kind: HelmRepository
+        kind: OCIRepository
         name: proxmox
         namespace: flux-system
   install:
