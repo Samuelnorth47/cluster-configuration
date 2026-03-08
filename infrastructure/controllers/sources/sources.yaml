@@ -28,3 +28,15 @@ spec:
     semver: "0.5.5" 
   secretRef:
     name: ghcr-creds
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: proxmox-test
+  namespace: flux-system
+spec:
+  interval: 1h
+  url: oci://ghcr.io/sergelogvinov/charts
+  type: oci
+  secretRef:
+    name: ghcr-creds
