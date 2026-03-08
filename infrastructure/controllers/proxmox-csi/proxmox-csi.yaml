@@ -31,4 +31,4 @@ spec:
         reclaimPolicy: Delete
         fstype: ext4
         cache: directsync        
-        ssd: tru
+        ssd: true
