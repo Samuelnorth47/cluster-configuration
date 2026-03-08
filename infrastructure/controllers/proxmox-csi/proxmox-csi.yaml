@@ -21,16 +21,10 @@ spec:
     crds: CreateReplace
   values:
     installCRDs: true
-    # -- Proxmox cluster config stored in secrets.
     existingConfigSecret: "proxmox-csi-config"
-
-    # -- Proxmox cluster config stored in secrets key.
-    # This must match the filename used in the --from-file flag above
     existingConfigSecretKey: "config.yaml"
-
-    # Ensure the 'config' block is empty or commented out
-    config: []
-    clusters: []
+    config:
+      clusters: []
     storageClass:
       - name: proxmox-local-lvm 
         storage: local-lvm       
