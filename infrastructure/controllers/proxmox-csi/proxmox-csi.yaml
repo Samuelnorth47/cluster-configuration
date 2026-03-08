@@ -1,0 +1,41 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: proxmox-csi
+  namespace: flux-system
+spec:
+  releaseName: proxmox-csi
+  targetNamespace: proxmox-csi-system
+  interval: 30m
+  chart:
+    spec:
+      chart: proxmox-csi-plugin
+      version: "v1.19.2"
+      sourceRef:
+        kind: HelmRepository
+        name: proxmox
+        namespace: flux-system
+  install:
+    crds: CreateReplace
+    createNamespace: true
+  upgrade:
+    crds: CreateReplace
+  values:
+    installCRDs: true
+    # -- Proxmox cluster config stored in secrets.
+    existingConfigSecret: "proxmox-csi-config"
+
+    # -- Proxmox cluster config stored in secrets key.
+    # This must match the filename used in the --from-file flag above
+    existingConfigSecretKey: "config.yaml"
+
+    # Ensure the 'config' block is empty or commented out
+    config: []
+    clusters: []
+    storageClass:
+      - name: proxmox-local-lvm 
+        storage: local-lvm       
+        reclaimPolicy: Delete
+        fstype: ext4
+        cache: directsync        
+        ssd: tru
