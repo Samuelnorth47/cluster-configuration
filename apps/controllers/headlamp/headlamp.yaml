@@ -24,6 +24,13 @@ spec:
         name: headlamp
         namespace: flux-system
   values:
+    config:
+      oidc:
+        secret:
+          create: false
+          externalSecret:
+            enabled: true
+            name: headlamp-oidc-secret
     # -- Mount Service Account token in pod
     automountServiceAccountToken: true
 
