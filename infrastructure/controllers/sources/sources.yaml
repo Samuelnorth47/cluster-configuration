@@ -35,7 +35,6 @@ metadata:
   name: proxmox
   namespace: flux-system
 spec:
-  version: "0.5.5" 
   interval: 1h
   url: oci://ghcr.io/sergelogvinov/charts
   type: oci
