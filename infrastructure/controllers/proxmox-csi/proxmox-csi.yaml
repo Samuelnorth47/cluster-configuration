@@ -32,3 +32,14 @@ spec:
         fstype: ext4
         cache: directsync        
         ssd: true
+      # ... existing config ...
+    node:
+      nodeSelector: {} 
+      tolerations:
+        - operator: Exists
+    controller:
+      nodeSelector:
+        node-role.kubernetes.io/control-plane: ""
+      tolerations:
+        - key: node-role.kubernetes.io/control-plane
+          effect: NoSchedule
