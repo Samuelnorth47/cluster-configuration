@@ -26,7 +26,7 @@ spec:
     config:
       clusters: []
     storageClass:
-      - name: proxmox-local-lvm 
+      - name: proxmox-local-lvm
         storage: local-lvm       
         reclaimPolicy: Delete
         fstype: ext4
