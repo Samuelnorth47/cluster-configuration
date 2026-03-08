@@ -32,7 +32,7 @@ spec:
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: proxmox-test
+  name: proxmox
   namespace: flux-system
 spec:
   interval: 1h
