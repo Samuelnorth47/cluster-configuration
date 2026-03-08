@@ -4,4 +4,4 @@ resources:
   - ./certmanager
   - ./sources
   - ./metallb
-  - proxmox-csi
+  - ./proxmox-csi
