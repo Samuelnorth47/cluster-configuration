@@ -4,6 +4,16 @@ metadata:
   name: headlamp
   namespace: flux-system
 spec:
+  postRenderers:
+      - kustomize:
+          patches:
+            - target:
+                kind: Ingress
+                name: headlamp 
+              patch: |
+                - op: add
+                  path: /metadata/annotations/traefik.ingress.kubernetes.io~1router.middlewares
+                  value: headlamp-system-headers@kubernetescrd
   releaseName: headlamp
   targetNamespace: headlamp-system
   install:
