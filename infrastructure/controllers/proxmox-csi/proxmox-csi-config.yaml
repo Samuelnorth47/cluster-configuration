@@ -16,10 +16,10 @@ spec:
       data:
         config.yaml: |
           clusters:
-            - url: https://mercury.proxmox.home.arpa:8006/api2/json
-              insecure: true
-              token_id: "kubernetes-csi@pve!csi"
-              token_secret: "{{ .proxmox_csi_token }}"
+            url: https://mercury.proxmox.home.arpa:8006/api2/json
+            insecure: true
+            token_id: "kubernetes-csi@pve!csi"
+            token_secret: "{{ .proxmox_csi_token }}"
             region: k8s-home-lab
   data:
     - secretKey: proxmox_csi_token
