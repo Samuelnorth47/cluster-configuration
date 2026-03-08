@@ -4,3 +4,4 @@ resources:
   - ghcr-ext-secret.yaml
   - proxmox-csi.yaml
   - proxmox-csi-config.yaml
+  - namespace.yaml
