@@ -23,4 +23,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
-  url: oci://ghcr.io/sergelogvinov/charts
+  url: oci://ghcr.io/sergelogvinov/charts/proxmox-csi-plugin
+  ref:
+    semver: "0.5.5" 
+  secretRef:
+    name: ghcr-creds
