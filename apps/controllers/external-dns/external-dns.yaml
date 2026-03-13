@@ -20,6 +20,10 @@ spec:
   values:
     rbac:
       create: true
+    serviceAccount:
+      create: true
+      name: external-dns
+      automountServiceAccountToken: true
     provider: rfc2136
     rfc2136:
       host: "192.168.4.1" 
