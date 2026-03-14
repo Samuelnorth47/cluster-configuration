@@ -5,9 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   releaseName: external-dns
-  targetNamespace: external-dns-system
-  install:
-    createNamespace: true
+  targetNamespace: default
   interval: 30m
   chart:
     spec:
