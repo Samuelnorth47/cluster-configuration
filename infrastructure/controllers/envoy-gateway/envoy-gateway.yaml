@@ -20,5 +20,3 @@ spec:
     createNamespace: true
   upgrade:
     crds: CreateReplace
-  values:
-    installCRDs: true
