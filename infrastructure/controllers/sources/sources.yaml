@@ -50,3 +50,5 @@ spec:
   interval: 1h
   url: oci://docker.io/envoyproxy/gateway-helm
   type: oci
+  secretRef:
+    name: dockerio-creds
