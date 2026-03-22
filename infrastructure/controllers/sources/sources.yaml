@@ -44,11 +44,12 @@ spec:
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: OCIRepository
 metadata:
-  name: envoyproxy
+  name: envoy-gateway
   namespace: flux-system
 spec:
   interval: 1h
   url: oci://docker.io/envoyproxy/gateway-helm
-  type: oci
+  ref:
+    semver: "v1.7.1" 
   secretRef:
     name: dockerio-creds
