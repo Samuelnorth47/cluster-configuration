@@ -32,7 +32,6 @@ spec:
         fstype: ext4
         cache: directsync        
         ssd: true
-      # ... existing config ...
     node:
       nodeSelector: {} 
       tolerations:
