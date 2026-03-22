@@ -42,13 +42,13 @@ spec:
     name: ghcr-creds
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
+kind: OCIRepository
 metadata:
   name: envoyproxy
   namespace: flux-system
 spec:
   interval: 1h
-  url: oci://docker.io/envoyproxy
+  url: oci://docker.io/envoyproxy/gateway-helm
   type: oci
   secretRef:
     name: dockerio-creds
