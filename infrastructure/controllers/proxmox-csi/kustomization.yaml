@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - ghcr-ext-secret.yaml
   - proxmox-csi.yaml
-  - proxmox-csi-config.yaml
+  - proxmox-csi-config-external-secret.yaml
   - namespace.yaml
