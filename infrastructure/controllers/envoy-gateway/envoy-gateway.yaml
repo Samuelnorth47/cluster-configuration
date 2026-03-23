@@ -10,9 +10,10 @@ spec:
   chart:
     spec:
       chart: gateway-helm
+      version: "v1.7.1"
       sourceRef:
-        kind: OCIRepository
-        name: envoy-gateway
+        kind: HelmRepository
+        name: envoyproxy
         namespace: flux-system
   install:
     crds: CreateReplace
